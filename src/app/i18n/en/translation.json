@@ -1,0 +1,24 @@
+{
+    "common": {
+        "loading": "Loading...",
+        "error": "Error",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create"
+    },
+    "navigation": {
+        "models": "Model Catalog",
+        "agentBuilder": "Agent Builder",
+        "prompts": "Prompt Management",
+        "evaluations": "Evaluations",
+        "guardrails": "Guardrails",
+        "settings": "Settings"
+    },
+    "models": {
+        "title": "Model Catalog",
+        "search": "Search models...",
+        "noResults": "No models found"
+    }
+}

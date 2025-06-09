@@ -1,0 +1,32 @@
+{
+  "mcpServers": {
+    "memory-bank": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx", "-y", "@allpepper/memory-bank-mcp@latest",
+        "--stdio"
+      ],
+      "env": {
+        "MEMORY_BANK_ROOT": "F:\\MemoryBank\\RH\\RHAI\\RHAIS"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "memory_bank_read",
+        "memory_bank_write",
+        "memory_bank_update",
+        "list_projects",
+        "list_project_files"
+      ]
+    },
+    "playwright-mcp": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+/* PatternFly 6 styles and custom overrides */
+@import '@patternfly/react-core/dist/styles/base.css';
+
+/* Custom CSS custom properties / variables */
+:root {
+    --pf-v6-global--primary-color--100: #0066cc;
+    --pf-v6-global--success-color--100: #3e8635;
+    --pf-v6-global--warning-color--100: #f0ab00;
+    --pf-v6-global--danger-color--100: #c9190b;
+}
+
+/* Global application styles */
+body {
+    font-family: var(--pf-v6-global--FontFamily--sans-serif);
+    background-color: var(--pf-v6-global--BackgroundColor--100);
+}
+
+/* Custom component overrides */
+.rhais-ui-app {
+    min-height: 100vh;
+}
