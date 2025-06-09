@@ -242,21 +242,21 @@ export const TopBar: React.FC<TopBarProps> = ({
     );
 
     return (
-        <Masthead style={{ flexWrap: 'nowrap', minHeight: '60px', width: '100%' }}>
-            <MastheadToggle>
-                <Button
-                    variant="plain"
-                    onClick={onNavToggle}
-                    aria-label="Global navigation"
-                    aria-expanded={isNavOpen}
-                >
-                    <Icon>
-                        <BarsIcon />
-                    </Icon>
-                </Button>
-            </MastheadToggle>
-            <MastheadMain style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap' }}>
-                <MastheadBrand style={{ flexShrink: 0 }}>
+        <Masthead>
+            <MastheadMain style={{ flexGrow: 0 }}>
+                <MastheadToggle>
+                    <Button
+                        variant="plain"
+                        onClick={onNavToggle}
+                        aria-label="Global navigation"
+                        aria-expanded={isNavOpen}
+                    >
+                        <Icon>
+                            <BarsIcon />
+                        </Icon>
+                    </Button>
+                </MastheadToggle>
+                <MastheadBrand>
                     <Link to="/">
                         <Brand
                             src={logoSrc}
@@ -265,38 +265,37 @@ export const TopBar: React.FC<TopBarProps> = ({
                         />
                     </Link>
                 </MastheadBrand>
-
-                {/* View Switcher */}
-                <div style={{
-                    marginLeft: 'var(--pf-v6-global--spacer--sm)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    whiteSpace: 'nowrap',
-                    flexShrink: 0
-                }}>
-                    <Popper
-                        trigger={
-                            <MenuToggle
-                                ref={viewSwitcherRef}
-                                onClick={() => setIsViewSwitcherOpen(!isViewSwitcherOpen)}
-                                isExpanded={isViewSwitcherOpen}
-                                variant="plainText"
-                                style={{ minWidth: '100px', fontSize: '14px' }}
-                            >
-                                {currentView}
-                            </MenuToggle>
-                        }
-                        popper={viewSwitcherMenu}
-                        isVisible={isViewSwitcherOpen}
-                        triggerRef={viewSwitcherRef}
-                        popperRef={viewMenuRef}
-                    />
-                </div>
-            </MastheadMain>
-
-            <MastheadContent>
                 <Toolbar isFullHeight>
-                    <ToolbarContent>
+                    <ToolbarContent >
+                        {/* View Switcher - moved here from MastheadMain */}
+                        <ToolbarGroup>
+                            <ToolbarItem>
+                                <Popper
+                                    trigger={
+                                        <MenuToggle
+                                            ref={viewSwitcherRef}
+                                            onClick={() => setIsViewSwitcherOpen(!isViewSwitcherOpen)}
+                                            isExpanded={isViewSwitcherOpen}
+                                            variant="plainText"
+                                            style={{ minWidth: '100px', fontSize: '14px' }}
+                                        >
+                                            {currentView}
+                                        </MenuToggle>
+                                    }
+                                    popper={viewSwitcherMenu}
+                                    isVisible={isViewSwitcherOpen}
+                                    triggerRef={viewSwitcherRef}
+                                    popperRef={viewMenuRef}
+                                />
+                            </ToolbarItem>
+                        </ToolbarGroup>
+                    </ToolbarContent>
+                </Toolbar>
+            </MastheadMain>
+            <MastheadContent style={{ marginLeft: 'auto' }}>
+                <Toolbar isFullHeight>
+                    <ToolbarContent >
+
                         <ToolbarGroup align={{ default: 'alignEnd' }}>
                             {/* Notifications */}
                             <ToolbarItem>

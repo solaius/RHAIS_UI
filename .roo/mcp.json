@@ -32,6 +32,10 @@
         "npx",
         "-y",
         "@playwright/mcp@latest"
+      ],
+      "alwaysAllow": [
+        "browser_navigate",
+        "browser_close"
       ]
     }
   }
