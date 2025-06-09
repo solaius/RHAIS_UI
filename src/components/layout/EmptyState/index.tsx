@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { EmptyState, EmptyStateIcon, EmptyStateBody, Title } from '@patternfly/react-core';
+import { EmptyState, EmptyStateBody, Icon } from '@patternfly/react-core';
 import { SearchIcon } from '@patternfly/react-icons';
 
 interface EmptyStateComponentProps {
@@ -11,14 +11,16 @@ interface EmptyStateComponentProps {
 export const EmptyStateComponent = ({
     title = 'No results found',
     message = 'Try adjusting your search criteria',
-    icon: Icon = SearchIcon,
+    icon: IconComponent = SearchIcon,
 }: EmptyStateComponentProps) => {
     return (
         <EmptyState>
-            <EmptyStateIcon icon={Icon} />
-            <Title headingLevel="h4" size="lg">
+            <Icon size="xl">
+                <IconComponent />
+            </Icon>
+            <h4 style={{ marginTop: 'var(--pf-v6-global--spacer--md)' }}>
                 {title}
-            </Title>
+            </h4>
             <EmptyStateBody>{message}</EmptyStateBody>
         </EmptyState>
     );

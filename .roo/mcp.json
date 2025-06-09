@@ -4,7 +4,9 @@
       "command": "cmd",
       "args": [
         "/c",
-        "npx", "-y", "@allpepper/memory-bank-mcp@latest",
+        "npx",
+        "-y",
+        "@allpepper/memory-bank-mcp@latest",
         "--stdio"
       ],
       "env": {
@@ -17,6 +19,10 @@
         "memory_bank_update",
         "list_projects",
         "list_project_files"
+      ],
+      "alwaysAllow": [
+        "memory_bank_write",
+        "memory_bank_update"
       ]
     },
     "playwright-mcp": {
