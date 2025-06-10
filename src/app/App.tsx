@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { ApplicationLayout } from '../components/layout/ApplicationLayout/ApplicationLayout';
 import {
   Card,
@@ -14,6 +14,7 @@ import {
 // Demo pages
 const HomePage = () => (
   <>
+    <Link to="/playground">Go to Playground (test)</Link>
     <PageSection>
       <Alert variant="info" isInline title="Welcome to OpenShift AI Studio">
         This is a demo of the standard top bar and navigation layout for all RHAIS pages.
@@ -62,45 +63,57 @@ const HomePage = () => (
 );
 
 const PlaygroundPage = () => (
-  <div>
-    <Alert variant="success" title="Model Playground" style={{ marginBottom: 'var(--pf-v6-global--spacer--lg)' }}>
-      This is the Model Playground page where users can test and compare AI models.
-    </Alert>
-    <Card>
-      <CardTitle>Playground Interface</CardTitle>
-      <CardBody>
-        The playground interface would be implemented here with side-by-side model comparison capabilities.
-      </CardBody>
-    </Card>
-  </div>
+  <>
+    <PageSection>
+      <Alert variant="success" isInline title="Model Playground">
+        This is the Model Playground page where users can test and compare AI models.
+      </Alert>
+    </PageSection>
+    <PageSection>
+      <Card>
+        <CardTitle>Playground Interface</CardTitle>
+        <CardBody>
+          The playground interface would be implemented here with side-by-side model comparison capabilities.
+        </CardBody>
+      </Card>
+    </PageSection>
+  </>
 );
 
 const AgentsPage = () => (
-  <div>
-    <Alert variant="warning" title="My Agents" style={{ marginBottom: 'var(--pf-v6-global--spacer--lg)' }}>
-      This is the My Agents page where users can build and manage their AI agents.
-    </Alert>
-    <Card>
-      <CardTitle>Agent Management</CardTitle>
-      <CardBody>
-        Agent builder interface and management tools would be implemented here.
-      </CardBody>
-    </Card>
-  </div>
+  <>
+    <PageSection>
+      <Alert variant="warning" isInline title="My Agents" >
+        This is the My Agents page where users can build and manage their AI agents.
+      </Alert>
+    </PageSection>
+    <PageSection>
+      <Card>
+        <CardTitle>Agent Management</CardTitle>
+        <CardBody>
+          Agent builder interface and management tools would be implemented here.
+        </CardBody>
+      </Card>
+    </PageSection>
+  </>
 );
 
 const PlaceholderPage: React.FC<{ title: string; description: string }> = ({ title, description }) => (
-  <div>
-    <Alert variant="info" title={title} style={{ marginBottom: 'var(--pf-v6-global--spacer--lg)' }}>
-      {description}
-    </Alert>
-    <Card>
-      <CardTitle>{title}</CardTitle>
-      <CardBody>
-        This page is a placeholder and would contain the actual {title.toLowerCase()} functionality.
-      </CardBody>
-    </Card>
-  </div>
+  <>
+    <PageSection>
+      <Alert variant="info" isInline title={title}>
+        {description}
+      </Alert>
+    </PageSection>
+    <PageSection>
+      <Card>
+        <CardTitle>{title}</CardTitle>
+        <CardBody>
+          This page is a placeholder and would contain the actual {title.toLowerCase()} functionality.
+        </CardBody>
+      </Card>
+    </PageSection>
+  </>
 );
 
 function App() {
@@ -118,8 +131,9 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/playground" element={<PlaygroundPage />} />
-          <Route path="/agents" element={<AgentsPage />} />
+          <Route path="/build/model-playground" element={<PlaygroundPage />} />
+          <Route path="/build/agent-builder" element={<AgentsPage />} />
+          <Route path="/build/my-agents" element={<AgentsPage />} />
           <Route
             path="/get-started/tutorials"
             element={<PlaceholderPage title="Tutorials" description="Learn how to use OpenShift AI Studio with step-by-step tutorials." />}
