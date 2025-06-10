@@ -5,7 +5,8 @@ import {
     PageSidebar,
     PageSidebarBody,
     SkipToContent,
-    Content
+    Content,
+    Title
 } from '@patternfly/react-core';
 import { TopBar } from '../TopBar/TopBar';
 import { LeftNavigation } from '../LeftNavigation/LeftNavigation';
@@ -39,7 +40,7 @@ export const ApplicationLayout: React.FC<ApplicationLayoutProps> = ({
     const skipToContentId = 'primary-main-container';
 
     const sidebar = (
-        <PageSidebar>
+        <PageSidebar isSidebarOpen={isNavOpen}>
             <PageSidebarBody>
                 <LeftNavigation />
             </PageSidebarBody>
@@ -62,38 +63,26 @@ export const ApplicationLayout: React.FC<ApplicationLayoutProps> = ({
             />
 
             <Page
-                sidebar={isNavOpen ? sidebar : undefined}
-                isManagedSidebar
-                onPageResize={() => {
-                    // Handle page resize if needed
-                }}
+                sidebar={sidebar}
+                isContentFilled
             >
                 {/* Main Content Area */}
-                <PageSection variant="default" padding={{ default: 'padding' }}>
-                    {title && (
-                        <Content component="h1" className="pf-v6-u-mb-lg">
-                            {title}
-                        </Content>
-                    )}
-                </PageSection>
 
-                <PageSection hasBodyWrapper id={skipToContentId}>
+                <PageSection hasBodyWrapper isFilled id={skipToContentId}>
                     {children}
                 </PageSection>
 
                 {/* Footer */}
                 <PageSection
                     variant="default"
+                    isCenterAligned
+                    isWidthLimited
+                    hasBodyWrapper={false}
                     isFilled={false}
                     padding={{ default: 'padding' }}
                 >
-                    <footer className="pf-v6-u-text-align-center">
-                        <Content
-                            component="p"
-                            className="pf-v6-u-color-200 pf-v6-u-font-size-sm"
-                        >
-                            © 2025 Red Hat, Inc. | OpenShift AI Studio
-                        </Content>
+                    <footer>
+                        © 2025 Red Hat, Inc. | OpenShift AI Studio
                     </footer>
                 </PageSection>
             </Page>
