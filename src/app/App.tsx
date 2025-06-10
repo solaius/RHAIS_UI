@@ -14,7 +14,6 @@ import {
 // Demo pages
 const HomePage = () => (
   <>
-    <Link to="/playground">Go to Playground (test)</Link>
     <PageSection>
       <Alert variant="info" isInline title="Welcome to OpenShift AI Studio">
         This is a demo of the standard top bar and navigation layout for all RHAIS pages.
